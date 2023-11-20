@@ -3,11 +3,15 @@ import { useEffect, useState } from "react"
 export function Fetch () {
     const [ users, setUsers ] = useState([])
 
+    // Fetch
+
 /*     const getUsers = () => {
         fetch("https://reqres.in/api/users?page=2")
             .then(res => res.json())
             .then(res => setUsers(res.data))
     } */
+
+    // Fetch Async Await
 
     const getUsersAW = async () => {
         const res = await fetch("https://reqres.in/api/users?page=2")

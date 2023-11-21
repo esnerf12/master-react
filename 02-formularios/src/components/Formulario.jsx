@@ -10,7 +10,8 @@ export function Formulario () {
             nombre: data.nombre.value,
             apellido: data.apellido.value,
             genero: data.genero.value,
-            biografia:  data.biografia.value
+            biografia:  data.biografia.value,
+            enviar: data.enviar.value
         }
         setUser(usuario)
     }
@@ -28,9 +29,13 @@ export function Formulario () {
         <>
             <h1>Formulario con React</h1>
 
-            <div className="user_info">
-                { user.nombre } { user.apellido } { user.genero } { user.biografia }
-            </div>
+            { user.enviar &&
+                (
+                    <div className="user_info">
+                        { user.nombre } { user.apellido } { user.genero } { user.biografia }
+                    </div>
+                )
+            }
 
             <form onSubmit={getDataForm}>
                 <input onChange={updateData} type="text" name="nombre" placeholder="Nombre" />
@@ -40,7 +45,7 @@ export function Formulario () {
                     <option value="mujer">Mujer</option>
                 </select>
                 <textarea onChange={updateData} name="biografia" cols="30" rows="10" placeholder="Biografia"></textarea>
-                <input type="submit" value="Enviar" />
+                <input type="submit" value="Enviar" name="enviar"/>
             </form>
         </>
     )

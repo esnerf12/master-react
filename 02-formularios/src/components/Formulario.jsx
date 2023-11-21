@@ -19,10 +19,10 @@ export function Formulario () {
     const updateData = (e) => {
         let name_input = e.target.name
 
-        setUser((estado_previo => ({
+        setUser(estado_previo => ({
             ...estado_previo,
             [name_input] : e.target.value
-        })))
+        }))
     }
 
     return (

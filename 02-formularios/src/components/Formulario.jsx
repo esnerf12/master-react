@@ -15,6 +15,15 @@ export function Formulario () {
         setUser(usuario)
     }
 
+    const updateData = (e) => {
+        let name_input = e.target.name
+
+        setUser((estado_previo => ({
+            ...estado_previo,
+            [name_input] : e.target.value
+        })))
+    }
+
     return (
         <>
             <h1>Formulario con React</h1>
@@ -24,13 +33,13 @@ export function Formulario () {
             </div>
 
             <form onSubmit={getDataForm}>
-                <input type="text" name="nombre" placeholder="Nombre" />
-                <input type="text" name="apellido" placeholder="Apellido" />
-                <select name="genero">
+                <input onChange={updateData} type="text" name="nombre" placeholder="Nombre" />
+                <input onChange={updateData} type="text" name="apellido" placeholder="Apellido" />
+                <select onChange={updateData} name="genero">
                     <option value="hombre">Hombre</option>
                     <option value="mujer">Mujer</option>
                 </select>
-                <textarea name="biografia" cols="30" rows="10" placeholder="Biografia"></textarea>
+                <textarea onChange={updateData} name="biografia" cols="30" rows="10" placeholder="Biografia"></textarea>
                 <input type="submit" value="Enviar" />
             </form>
         </>

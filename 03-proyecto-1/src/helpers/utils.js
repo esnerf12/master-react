@@ -11,9 +11,3 @@ export const saveInStorage = (movie) => {
 
     return movie
 }
-
-export const getDataFromLocalStorage = () => {
-    const data = JSON.parse(localStorage.getItem('movies'))
-
-    return data
-}

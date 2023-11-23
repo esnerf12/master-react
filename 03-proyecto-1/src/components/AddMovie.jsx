@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { saveInStorage } from "../helpers/utils.js"
 
-export function AddMovie () {
+// eslint-disable-next-line react/prop-types
+export function AddMovie ({ setMoviesState }) {
 
     const [ movies, setMovies ] = useState({})
 
@@ -14,6 +15,10 @@ export function AddMovie () {
         }
 
         setMovies(data)
+        
+        setMoviesState(elements => {
+            return [...elements, data]
+        })
 
         saveInStorage(data)
     }

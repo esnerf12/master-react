@@ -2,8 +2,11 @@ import './App.css'
 import { Cards } from './components/Cards.jsx'
 import { Search } from './components/Search.jsx'
 import { AddMovie } from './components/AddMovie.jsx'
+import { useState } from 'react'
 
 function App() {
+  const [ movies, setMovies ] = useState([])
+
   return (
     <>
       <div className="layout">
@@ -25,12 +28,12 @@ function App() {
         </nav>
 
         <section className="content">
-            <Cards></Cards>
+            <Cards movies={movies} setMovies={setMovies}></Cards>
         </section>
 
         <aside className="lateral">
             <Search></Search>
-            <AddMovie></AddMovie>
+            <AddMovie setMoviesState={setMovies}></AddMovie>
         </aside>
 
         <footer className="footer">

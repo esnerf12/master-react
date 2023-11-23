@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
-export function Cards () {
-    const [ movies, setMovies ] = useState([])
+// eslint-disable-next-line react/prop-types
+export function Cards ({ movies, setMovies }) {
 
     useEffect(() => {
         getDataFromLocalStorage()
@@ -17,6 +17,7 @@ export function Cards () {
         <>
             {
                 movies 
+                    // eslint-disable-next-line react/prop-types
                     ? movies.map(movie => {
                     return (
                         <article key={movie.id} className="peli-item">
